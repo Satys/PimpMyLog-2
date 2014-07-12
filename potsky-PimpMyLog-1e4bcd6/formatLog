@@ -1,0 +1,73 @@
+"apache3": {
+			"display" : "Apache Error #1",
+			"path"    : "C:\/wamp\/www\/task\/log2.log",
+			"refresh" : 5,
+			"max"     : 10,
+			"notify"  : true,
+			"format"  : {
+				"type" : "HTTPD 2.2",
+				"regex": "|^\\[(.*)\\] \\[(.*)\\] (\\[client (.*)\\] )*((?!\\[client ).*)(, referer: (.*))*$|U",
+				"match": {
+					"Date"     : 1,
+					"IP"       : 4,
+					"Log"      : 5,
+					"Severity" : 2,
+					"Referer"  : 7
+				},
+				"types": {
+					"Date"     : "date:d\/m\/Y H:i:s \/51",
+					"IP"       : "ip:http",
+					"Log"      : "pre",
+					"Severity" : "badge:severity",
+					"Referer"  : "link"
+				},
+				"exclude": {
+					"Log": ["\/PHP Stack trace:\/", "\/PHP *[0-9]*\\. \/"]
+				}
+			}
+		}
+		
+		
+		
+		
+|^\\[(.*)\\] \\[(.*)\\] (\\[client (.*)\\] )*(File does not exist: (.*))(, referer: (.*))*$|U
+
+
+"|^\\[(.*)\\] \\[(.*)\\] (\\[Log\\] (.*))*(\\[.*\\] )(: .*)*$|U"
+
+for apache error log
+
+"|^\\[(.*)\\] \\[(.*)\\] (\\[client (.*)\\] )*((?!\\[client ).*)(, referer: (.*))*$|U"
+
+
+"apache3": {
+			"display" : "Apache Error #1",
+			"path"    : "C:\/wamp\/www\/task\/log2.log",
+			"refresh" : 5,
+			"max"     : 10,
+			"notify"  : true,
+			"format"  : {
+				"type" : "HTTPD 2.2",
+				"regex": "|^\\[(.*)\\] \\[(.*)\\] (\\[(.*)\\] )(.*)( \\[(.*)\\])(: (.*))*$|U",
+				"match": {
+					"Date"     : 1,
+					"IP"       : 4,
+					"Log"      : 4,
+					"Name"	   : 5,
+					"Severity" : 2,
+					"File"  : 6
+				},
+				"types": {
+					"Date"     : "date:d\/m\/Y H:i:s \/51",
+					"IP"       : "ip:http",
+					"Log"      : "pre",
+					"Name"	   : 7,
+					"Severity" : "badge:severity",
+					"File"  : "link"
+				},
+				"exclude": {
+					"Log": ["\/PHP Stack trace:\/", "\/PHP *[0-9]*\\. \/"]
+				}
+			}
+		}
+		
